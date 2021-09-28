@@ -1,0 +1,3 @@
+Reading through the tray chapter, they seem to be similar to lists in python but have some differences
+I did not do the assignments for this section so I am not completely confident with arrays and everything we can do with them
+I will try to look at them more in depth asap

@@ -1,0 +1,3 @@
+I don't think I ever got the Ackerman function to work
+- I worked on it for a long time and couldn't see what I was doing wrong
+I am starting to understand how to use scanners and the different value types well at this point

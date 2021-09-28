@@ -1,0 +1,2 @@
+I really gained confidence with java(hopefully in a good way) after doing these exercises
+First code with multiple methods like this and it made me think that I know the syntax much better than I thought

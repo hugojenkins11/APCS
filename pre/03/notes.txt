@@ -1,0 +1,3 @@
+I am still confused about what a stack diagram is and how to make one
+The other two parts of this exercise were simple(given that I got them right)
+Mentions loops but we didn't really do it in that way in the future chapters?

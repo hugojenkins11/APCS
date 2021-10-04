@@ -1,6 +1,6 @@
 //KHB- Hugo Jenkins, Kaitlin Ho, Boary, Apple
 //APCS
-//HW09-- Refactor Big Sib One
+//HW10-- Refactor Big Sib One
 //2021-10-03
 public class Greet {
     public static void main( String[] args ){

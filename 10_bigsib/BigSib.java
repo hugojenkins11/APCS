@@ -1,19 +1,15 @@
 //KHB- Hugo Jenkins, Kaitlin Ho, Boary, Apple
 //APCS
-//HW09--What Are BigSibs Good For?
-//2021-10-02
+//HW10--Refactor Big Sib One
+//2021-10-04
 public class BigSib {
   public static String greet(String n) {
     return("Howdy, "+ n);
   }
 }
 /* Discoveries:
-You must compile both files before you can run the code
-<class>.<method> runs that method
-This is a situation that you don't need a main method
+You can use a return statement in a method in order to give object that you can then do whatever you want with in another method. 
+You must have the type of value you are returning in the first line of the method. e.g. String
 QCC:
-How would this work accessing a private class?
-Does a method need a potential argument type?
-e.g. "public static void main( String[] args )"
--we have no intention of using an argument
+How can we access a file of private class?
 */

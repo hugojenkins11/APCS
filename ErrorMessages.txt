@@ -1,0 +1,2 @@
+error: non-static variable helloMsg cannot be referenced from a static context
+- do not use static, just delete it

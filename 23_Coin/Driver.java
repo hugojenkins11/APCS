@@ -19,7 +19,6 @@ public class Driver {
 
     //test default constructor
       Coin mine = new Coin();
-    /*===================TOP==========================
       //test 1st overloaded constructor
       Coin yours = new Coin( "quarter" );
       //test 2nd overloaded constructor
@@ -41,7 +40,6 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
-      ====================BOTTOM======================*/
 
   }//end main()
 

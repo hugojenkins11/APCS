@@ -1,6 +1,19 @@
-/***
-
- ***/
+/**
+Aristocratic Hippos :: Ameer Alnasser, Hugo Jenkins
+APCS
+HW23: What does equality look like?
+2021-10-24
+time spent: 1.1 hr (excluding class time)
+DISCO:
+the syntax of conditionals (IE: || in java ==or in python)
+how to compare different objects of same class
+How to effectively utilize Pair Programming && compiling per step of the way
+How to change values initilaized with a defined constructor
+QCC:
+There was an issue when we set the boolean functon to return "other.flip()==upFace". It would correctly identify if its matched or not only sometimes. Why did it not work?
+Is there a more seameless way to organize brackets so you dont get lost in the syntax sauce?
+is there a quicker way to check if a value is one of a certain list (IE: we compared string s to coin names)?a
+**/
 
 public class Coin {
 
@@ -21,8 +34,8 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
-    name="coin";
-    upFace="face";
+    name="null";
+    upFace="heads";
     flipCtr=0;
     headsCtr=0;
     tailsCtr=0;
@@ -46,7 +59,9 @@ public class Coin {
             name = s;
     } else {
   System.out.println("Invalid coin name");
+
 }
+upFace="heads";
 }
 
 
@@ -126,9 +141,14 @@ public class Coin {
       postcond: Coin's attribs reset to starting vals
   ***/
   public void reset( String s, double d ) {
-
+    if((s == "heads")|| (s == "tails") && (0<=d) && (d<=1)){
+    s = upFace;
+    flipCtr=0;
+    headsCtr=0;
+    tailsCtr=0;
+    bias=.5;
   }
-
+}
 
   /***
    * String flip() -- simulates a Coin flip
@@ -140,8 +160,25 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
+    double v;
+    v=Math.random();
+    if (v >= .5){
+      headsCtr+=1;
+      upFace="heads";
+      flipCtr+=1;
+      bias=headsCtr/flipCtr;
+      return upFace;
+    }
+    else{
+      tailsCtr+=1;
+      upFace="tails";
+      flipCtr+=1;
+      bias=headsCtr/flipCtr;
+      return upFace;
+    }
 
-  }
+    }
+
 
 
   /***
@@ -152,16 +189,15 @@ public class Coin {
    ***/
   public boolean equals( Coin other ) {
 
-  }
-
-
+    return other.upFace==upFace;
+}
   /***
    * String toString() -- overrides toString() provided by Java
    * precond: n/a
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-
+    return name + " -- " + upFace;
   }
 
 }//end class

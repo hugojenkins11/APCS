@@ -18,9 +18,10 @@ is there a quicker way to check if a value is one of a certain list (IE: we com>
 public class Coin {
 
   //attributes aka instance vars
+  //changed to private because we don't like them being public for no reason
   private String name, upFace;
   private double value;
-  private int flipCtr, headsCtr, tailsCtr;
+  public int flipCtr, headsCtr, tailsCtr; //Changed to public so we can compare in Driver.java
   private double bias = .5;
 
 
@@ -46,7 +47,7 @@ public class Coin {
       postcond:
   ***/
  public Coin( String s ) {
-    this();
+    this();//avoids unnecessary coding
     name =s ;
     assignValue(s);
 }
@@ -59,7 +60,7 @@ public class Coin {
       postcond:
   ***/
   public Coin( String s, String nowFace ) {
-    this(s);
+    this(s);//avoids unnecessary coding
     upFace = nowFace;
 }
 

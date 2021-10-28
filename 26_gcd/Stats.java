@@ -1,19 +1,41 @@
+/*
+JPH- Jacob Kirmayer, Prattay Dey, Hugo Jenkins
+APCS
+HW26 -- GCD Three Ways
+2021-10-27
+time spent: 0.75 hours
+*/
+/*
+DISCO:
+There are many ways to code the same thing, all of which are correct
+QCC:
+How do we know which is the best code for the job?
+Which takes the computer the least computations?
+ALGO:
+For both GCDER and GCDEW, we work on working a and b down to the same number by using the rule thatthe GCD of 2 numbers remains the same if the larger number is replaced by its difference with the smaller number. 
+
+*/
+
 public class Stats{
   public static void main(String[] args){
-
+    System.out.println(gcd(81,27) == gcdER(81,27) && gcdER(81,27) == gcdEW(81,27));//Should all return the same integer
+    System.out.println(gcd(65,39));//Should be 13
+    System.out.println(gcdER(65,39));//Should be 13
+    System.out.println(gcdEW(65,39));//Should be 13
   }
   public static int gcd(int a, int b){
-    if (a > b){
-      int c = a;
+    int upperBound;
+      if (a < b){
+        upperBound = a;
+      }
+      else{
+        upperBound = b;
+      }
+      while (!(a%upperBound==0&&b%upperBound==0)){
+        upperBound--;
+      }
+      return upperBound;
     }
-    else{
-      int c = b;
-    }
-    int i = c;
-    while (i > 0){
-      
-    }
-  }
   public static int gcdER(int a, int b){
     if (a == b){
       return a;

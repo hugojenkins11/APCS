@@ -1,9 +1,9 @@
 /***
- * Clyde "Thluffy" Sinclair
+ * JPH: Jacob Kirmayer, Prattay Dey, Hugo Jenkins
  * APCS
- * HW31 --
- * 2021-11-04r
- * time spent: _hrs
+ * HW31 -- Pig Latin Functions
+ * 2021-11-03
+ * time spent: 0.6 hrs
  *
  * class Pig
  * a Pig Latin translator
@@ -22,6 +22,13 @@
  *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
  ***/
 
+/*
+DISCOS:
+- Our initial attempts had many out-of-bounds errors during for loops, as our code allowed the index to exceed the array length.
+- When trying to isolate a specific character in a string using subset(), the syntax is s.subset(char, char + 1) -- NOT simply s.subset(char)
+QCCs:
+- How would our methods be different if they took in a char input rather than a String?
+*/
 public class Pig
 {
   //Q: How does this initialization make your life easier?
@@ -37,7 +44,6 @@ public class Pig
   public static boolean hasA( String w, String letter )
   {
     return -1<w.indexOf(letter);
-    /* YOUR IMPLEMENTATION HERE */
   }//end hasA()
 
 
@@ -47,8 +53,7 @@ public class Pig
     =====================================*/
   public static boolean isAVowel( String letter )
   {
-    return letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u";
-    /* YOUR IMPLEMENTATION HERE */
+  return letter.equals("a") || letter.equals("e") || letter.equals("i") || letter.equals("o") || letter.equals("u");
   }
 
 
@@ -60,13 +65,12 @@ public class Pig
   public static int countVowels( String w )
   {
     int ans = 0;
-    for(int i = 0;i<w.length()+1;i=i-1){
-      if (isAVowel(w.substring(i))){
+    for(int i = 0;i<w.length();i=i+1){
+      if (isAVowel(w.substring(i, i + 1))){
         ans = ans + 1;
       }
     }
     return ans;
-    /* YOUR IMPLEMENTATION HERE */
   }
 
 
@@ -78,8 +82,7 @@ public class Pig
     =====================================*/
   public static boolean hasAVowel( String w )
   {
-    return countVowels(w)>0;
-    /* YOUR IMPLEMENTATION HERE */
+    return countVowels(w) > 0;
   }
 
 
@@ -91,19 +94,31 @@ public class Pig
   public static String allVowels( String w )
   {
     String anw = "";
-    for(int i = 0;i<w.length()+1;i=i-1){
-      if (isAVowel(w.substring(i))){
-        anw = anw + w.substring(i);
+    for(int i = 0;i<w.length();i=i+1){
+      if (isAVowel(w.substring(i, i + 1))){
+        anw = anw + w.substring(i, i + 1);
       }
     }
     return anw;
-    /* YOUR IMPLEMENTATION HERE */
   }
 
 
-  public static void main( String[] args )
-  {
-    /* YOUR TEST CALLS HERE */
+  public static void main( String[] args ) {
+    System.out.println(hasA("hello", "b")); // 0 occurences, false
+    System.out.println(hasA("hello", "e")); // 1 occurence, true
+    System.out.println(hasA("hello", "l")); // 2 occurences, true
+
+    System.out.println(isAVowel("e")); // true
+    System.out.println(isAVowel("f")); // false
+
+    System.out.println(countVowels("fxn")); // 0 vowels
+    System.out.println(countVowels("armor")); // 2 vowels
+
+    System.out.println(hasAVowel("fxn")); // false
+    System.out.println(hasAVowel("armor")); // true
+
+    System.out.println(allVowels("aloe")); // "aoe"
+    System.out.println(allVowels("fxn")); // ""
   }//end main()
 
 }//end class Pig

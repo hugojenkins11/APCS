@@ -1,8 +1,8 @@
 /***
- * The Greyducks: Ariella Katz, Kaitlin Ho, Hugo Jenkins, Tom, __, __
+ * UnicornHead: Ariella Katz, Melody Lew, Lior Polischouk, Tom, Ollie, Toothless
  * APCS
- * L00 -- Etterbay Odincay Oughthray Ollaborationcay
- * 2021-11-08
+ * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
+ * 2021-11-03
  * time spent: 0.5hrs
  *
  * class Pig
@@ -23,28 +23,19 @@
  ***/
 
 /*
-To-Do:
-Debug Thluffy’s Pig.java
-Adding methods and instance variables supplied
-Multiple consonants at the beginning of the word
-Capitalization
-Punctuation
-Apostrophes
-Numbers
-Words with no vowels
-*/
-
-/*
 DISCO:
-0.
+0. indexOf() is used to return the index position of a char or substring in another string.
+1. final means that this method cannot by overridden by subclasses.
+2. indexOf() returns -1 if the char or substring is not in the string.
 QCC:
-0.
+0. Will y never be considered a vowel?
+1. How will these methods combine to create Pig Latin?
+2. indexOf() is used for arrays. Are Strings types of arrays?
+3. How do we return the last occurrence of a char/string (since indexOf() returns the first)?
 */
 
 public class Pig
 {
-//  import java.util.Scanner;
-
   //Q: How does this initialization make your life easier?
   //A: We can use VOWELS in any method without creating a local variable whenever we need it.
   private static final String VOWELS = "aeiouy";
@@ -61,7 +52,8 @@ public class Pig
     =====================================*/
   public static boolean hasA( String w, String letter )
   {
-    return (w.indexOf(letter) != -1);
+    if (w.indexOf(letter) >= 0) { return true; }
+    else { return false; }
   }
 
 
@@ -71,7 +63,8 @@ public class Pig
     =====================================*/
   public static boolean isAVowel( String letter )
   {
-    return (VOWELS.indexOf(letter) != -1);
+    if (VOWELS.indexOf(letter) >= 0) { return true; }
+    else { return false; }
   }
 
 
@@ -82,7 +75,11 @@ public class Pig
     =====================================*/
   public static int countVowels( String w )
   {
-    return allVowels(w).length();
+    int count = 0;
+    for (int i = 0; i < w.length(); i = i + 1) {
+      if (isAVowel(w.substring(i, i+1))) { count = count + 1; }
+    }
+    return count;
   }
 
 
@@ -94,7 +91,10 @@ public class Pig
     =====================================*/
   public static boolean hasAVowel( String w )
   {
-    return (countVowels(w) > 0);
+    for (int i = 0; i < w.length(); i = i + 1) {
+      if (isAVowel(w.substring(i, i+1))) { return true; }
+    }
+    return false;
   }
 
 
@@ -106,61 +106,11 @@ public class Pig
   public static String allVowels( String w )
   {
     String vowStr = "";
-    for (int i = 0; i < w.length(); i++) {
+    for (int i = 0; i < w.length(); i = i + 1) {
       if (isAVowel(w.substring(i, i+1))) { vowStr = vowStr + w.substring(i, i+1); }
     }
     return vowStr;
   }
-
-  /*====================================
-      String firstVowel(String) -- returns first vowel in a String
-      pre:  w != null
-      post: firstVowel("") --> ""
-            firstVowel("zzz") --> ""
-            firstVowel("meatball") --> "e"
-    =======================================*/
-  public static String firstVowel( String w ) {
-
-    String ans = "";
-
-    if ( hasAVowel(w) ) //Q: Why this necess?
-      ans = allVowels(w).substring(0,1);
-
-    return ans;
-  }
-
-  /*====================================
-      boolean beginsWithVowel(String) -- tells whether a String begins with a vowel
-      pre:  w != null and w.length() > 0
-      post: beginsWithVowel("apple") --> true
-            beginsWithVowel("strong") --> false
-    =======================================*/
-  public static boolean beginsWithVowel( String w ) {
-    return isAVowel( w.substring(0,1) );
-  }
-
-   /*====================================
-      String engToPig(String) -- converts an English word to Pig Latin
-      pre:  w.length() > 0
-      post: engToPig("apple") --> "appleway"
-            engToPig("strong") --> "ongstray"
-            engToPig("java") --> "avajay"
-    =======================================*/
-  public static String engToPig( String w ) {
-
-    String ans = "";
-
-    if ( beginsWithVowel(w) )
-      ans = w + "way";
-
-    else {
-      int vPos = w.indexOf( firstVowel(w) );
-      ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
-    }
-
-    return ans;
-  }
-
 
   /*=====================================
       boolean isPunc(String) -- tells whether a character is punctuation
@@ -192,7 +142,7 @@ public class Pig
       =====================================*/
     public static boolean hasPunc( String w ) {
       for (int i = 0; i < w.length(); i += 1) {
-        if (isPunc(w.substring(i,i+1))) { return true; }
+        if isPunc(w.substring(i,i+1)) { return true; }
       }
       return false;
     }
@@ -208,13 +158,29 @@ public class Pig
 	     return isUpperCase(w.substring(0,1) );
     }
 
-  public static void main( String[] args ) {
+  /**
+      String engToPig(String) -- converts an English word to Pig Latin
+      pre:  w.length() > 0
+      post: engToPig("apple")  --> "appleway"
+      engToPig("strong") --> "ongstray"
+      engToPig("java")   --> "avajay"
+      **/
+  /*  public static String engToPig( String w ) {
 
-     /*Scanner in = new Scanner(in.words);
-     String line = in.nextLine();
-     while (in.hasNextLine()) {
-       String word = in.nextLin();
-     }*/
+      String ans = "";
+
+      if ( beginsWithVowel(w) )
+        ans = w + "way";
+
+      else {
+        int vPos = w.indexOf( firstVowel(w) );
+        ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+      }
+
+      return ans;
+    }
+
+  public static void main( String[] args ) {
 
      for( String word : args ) {
        System.out.println( "allVowels \t" + allVowels(word) );
@@ -225,5 +191,35 @@ public class Pig
      }
 
    }//end main()
+*/
+    public static void main( String[] args )
+  {
+    System.out.print("Expecting true... ");
+    System.out.println(hasA("cat", "a"));
+    System.out.print("Expecting false... ");
+    System.out.println(hasA("cat", "p"));
+
+    System.out.print("Expecting true... ");
+    System.out.println(isAVowel("a"));
+    System.out.print("Expecting false... ");
+    System.out.println(isAVowel("p"));
+
+    System.out.print("Expecting 3... ")private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String PUNCS = ".,:;!?";
+;
+    System.out.println(countVowels("meatball"));
+    System.out.print("Expecting 0... ");
+    System.out.println(countVowels("m34tb4ll"));
+
+    System.out.print("Expecting true... ");
+    System.out.println(hasAVowel("cat"));
+    System.out.print("Expecting false... ");
+    System.out.println(hasAVowel("zzz"));
+
+    System.out.print("Expecting eaa... ");
+    System.out.println(allVowels("meatball"));
+    System.out.print("Expecting nothing... ");
+    System.out.println(allVowels("m34tb4ll"));
+  }
 
 }//end class Pig

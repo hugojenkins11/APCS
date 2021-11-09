@@ -50,7 +50,7 @@ public class Pig
 
   //Q: How does this initialization make your life easier?
   //A: We can use VOWELS in any method without creating a local variable whenever we need it.
-  private static final String VOWELS = "aeiouy";
+  private static final String VOWELS = "aeiouyAEIOUY";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   private static final String PUNCS = ".,:;!?";
 
@@ -153,12 +153,15 @@ public class Pig
 
     String ans = "";
 
-    if ( beginsWithVowel(w) )
-      ans = w + "way";
+    if ( beginsWithVowel(w) ) { ans = w + "way"; }
 
     else {
       int vPos = w.indexOf( firstVowel(w) );
-      ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+      if (beginsWithUpper(w)) {
+        ans = (w.substring(vPos, vPos+1)).toUpperCase() + w.substring(vPos+1)
+        + (w.substring(0,vPos)).toLowerCase() + "ay";
+      }
+      else { ans = w.substring(vPos) + w.substring(0,vPos) + "ay"; }
     }
 
     return ans;
@@ -240,3 +243,4 @@ public class Pig
    }//end main()
 
 }//end class Pig
+

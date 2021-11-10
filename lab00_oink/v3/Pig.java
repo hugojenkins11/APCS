@@ -33,21 +33,20 @@ Apostrophes (Or punctuation in the middle of words))
 Numbers
 Words with no vowels
 Improve readability (with more methods so nothing is too crowded)
-X Impliment a Scanner which reads a plain text file with a word on each line
 */
 
 /*
 DISCO:
-0.next() returns all of the characters up to the first space in a line and leaves the cursor at
-   there, so it's necessary to call next() again to get the cursor to the next line. nextLine()
-   returns all of the characters up to the end of the line and automatically moves the cursor
-   to the beginning of the next line, if there is one.
+0.
+
 QCC:
 0. How to use the scanner to read a file?
+
 */
 
-
-import java.util.Scanner;  //Scanner is not part of java's std lib
+/*import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;*/
 
 public class Pig
 {
@@ -157,11 +156,11 @@ public class Pig
 
     String ans = "";
 
-    if ( beginsWithVowel(w) ) {
+    if ( beginsWithVowel(w) ) { 
       if (isPunc(w.substring(w.length()-1))) {
         ans = w.substring(0,w.length()-1) + "way" + w.substring(w.length()-1);
       }
-      else {ans = w + "way";}
+      else {ans = w + "way";} 
     }
 
     else {
@@ -175,10 +174,10 @@ public class Pig
               + (w.substring(0,vPos)).toLowerCase() + "ay" + w.substring(w.length()-1);}
       }
       else {
-        if (!hasPunc(w)) {
+        if (!hasPunc(w)) { 
           ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
         }
-        else {ans = w.substring(vPos,w.length()-1) + w.substring(0,vPos) + "ay" +
+        else {ans = w.substring(vPos,w.length()-1) + w.substring(0,vPos) + "ay" + 
               w.substring(w.length()-1);}
     }
     }
@@ -232,27 +231,33 @@ public class Pig
 	     return isUpperCase(w.substring(0,1) );
     }
 
-
-
   public static void main( String[] args ) {
 
-//instantiate a Scanner with STDIN as its bytestream
-    Scanner sc = new Scanner( System.in );
+/*     File words = new File("in.words");
+     Scanner scanner = new Scanner(words);
+     String[] wordList = new String[5];
+     int n = 0;
+     while (n < 5) {
+       String word = scanner.nextLine();
+       wordList[n] = word;
+       n++;
+     }
+     String results = "";
+     for (int i = 0; i < wordList.length; i++) {
+       results += (engToPig(wordList[i]) + "\n");
+     }
+     System.out.println(results);
+*/
 
-    while( sc.hasNextLine() ) {
-      System.out.println(engToPig(sc.nextLine()));
-      }
-
-     // for( String word : args ) {
-     //   System.out.println( "allVowels \t" + allVowels(word) );
-     //   System.out.println( "firstVowels \t" + firstVowel(word) );
-     //   System.out.println( "countVowels \t" + countVowels(word) );
-     //   System.out.println( "engToPig \t" + engToPig(word) );
-     //   System.out.println( "---------------------" );
-     // }
+     for( String word : args ) {
+       System.out.println( "allVowels \t" + allVowels(word) );
+       System.out.println( "firstVowels \t" + firstVowel(word) );
+       System.out.println( "countVowels \t" + countVowels(word) );
+       System.out.println( "engToPig \t" + engToPig(word) );
+       System.out.println( "---------------------" );
+     }
 
    }//end main()
 
 }//end class Pig
-
 

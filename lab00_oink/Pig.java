@@ -2,7 +2,7 @@
  * The Greyducks: Ariella Katz, Kaitlin Ho, Hugo Jenkins, Tom, Apple, Boary
  * APCS
  * L00 -- Etterbay Odincay Oughthray Ollaborationcay
- * 2021-11-08
+ * 2021-11-09
  * time spent: 0.5hrs
  *
  * class Pig
@@ -33,17 +33,24 @@ Apostrophes (Or punctuation in the middle of words))
 Numbers
 Words with no vowels
 Improve readability (with more methods so nothing is too crowded)
-X Impliment a Scanner which reads a plain text file with a word on each line
 */
 
 /*
 DISCO:
-0.next() returns all of the characters up to the first space in a line and leaves the cursor at
+0. next() returns all of the characters up to the first space in a line and leaves the cursor at
    there, so it's necessary to call next() again to get the cursor to the next line. nextLine()
    returns all of the characters up to the end of the line and automatically moves the cursor
    to the beginning of the next line, if there is one.
 QCC:
-0. How to use the scanner to read a file?
+0. Is it in fact built into nextLine() to not move the cursor to the next line if there isn't
+   one?
+HOW WE UTILIZED SCANNER DEMO (v4):
+Used the while loop and creation of a new scanner, sc, but used nextLine() instead of next().
+WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO:
+After it gets to the last word, the second next() call tells Java to move the cursor to the next
+line, but there isn't a next line.
+NEW IN:
+Improving readability
 */
 
 
@@ -156,29 +163,45 @@ public class Pig
   public static String engToPig( String w ) {
 
     String ans = "";
-
-    if ( beginsWithVowel(w) ) {
-      if (isPunc(w.substring(w.length()-1))) {
+//If the word starts with a vowel, append -way to the end
+    if ( beginsWithVowel(w) ) { 
+//If the word starts with a vowel and the last character is a punctuation, append the punctuation
+//to the end of the translated word
+      if (isPunc(w.substring(w.length()-1))) { 
         ans = w.substring(0,w.length()-1) + "way" + w.substring(w.length()-1);
       }
-      else {ans = w + "way";}
+//If the word doesn't end with a punctuation and it starts with a vowel, just add -way
+      else {ans = w + "way";} 
     }
+//It doesn't matter if the first letter is uppercase because it starts with a vowel so no
+//letters are being moved to the end.
 
+//If the word doesn't start with a vowel...
     else {
       int vPos = w.indexOf( firstVowel(w) );
+//...and it begins with an uppercase letter...
       if (beginsWithUpper(w)) {
+//...and the last character is a punctuation, make everything lowercase, move all the consonants
+//up to the first vowel to the end of the word, make the first letter uppercase, append -way to
+//the end of the word, and append the punctuation mark to the end of that
         if (!hasPunc(w)) {
           ans = (w.substring(vPos, vPos+1)).toUpperCase() + w.substring(vPos+1)
           + (w.substring(0,vPos)).toLowerCase() + "ay";
         }
+//...and the last character isn't a punctuation, do all of that but without the punctuation stuff
         else {ans = (w.substring(vPos, vPos+1)).toUpperCase() + w.substring(vPos+1,w.length()-1)
               + (w.substring(0,vPos)).toLowerCase() + "ay" + w.substring(w.length()-1);}
       }
+//...and it doesn't begin with an uppercase letter...
       else {
-        if (!hasPunc(w)) {
+//...and the last character is a punctuation, make move all the consonants up to the first vowel
+//to the end of the word, appen -way to the end of the word, and append the punctuation mark to
+//the end of that
+        if (!hasPunc(w)) { 
           ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
         }
-        else {ans = w.substring(vPos,w.length()-1) + w.substring(0,vPos) + "ay" +
+//...and the last character isn't a punctuation, do all of that but without the punctuation stuff
+        else {ans = w.substring(vPos,w.length()-1) + w.substring(0,vPos) + "ay" + 
               w.substring(w.length()-1);}
     }
     }
@@ -239,20 +262,18 @@ public class Pig
 //instantiate a Scanner with STDIN as its bytestream
     Scanner sc = new Scanner( System.in );
 
-    while( sc.hasNextLine() ) {
+    while( sc.hasNext() ) {
       System.out.println(engToPig(sc.nextLine()));
       }
 
-     // for( String word : args ) {
-     //   System.out.println( "allVowels \t" + allVowels(word) );
-     //   System.out.println( "firstVowels \t" + firstVowel(word) );
-     //   System.out.println( "countVowels \t" + countVowels(word) );
-     //   System.out.println( "engToPig \t" + engToPig(word) );
-     //   System.out.println( "---------------------" );
-     // }
+     for( String word : args ) {
+       System.out.println( "allVowels \t" + allVowels(word) );
+       System.out.println( "firstVowels \t" + firstVowel(word) );
+       System.out.println( "countVowels \t" + countVowels(word) );
+       System.out.println( "engToPig \t" + engToPig(word) );
+       System.out.println( "---------------------" );
+     }
 
    }//end main()
 
 }//end class Pig
-
-

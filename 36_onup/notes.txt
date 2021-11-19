@@ -1,0 +1,119 @@
+Compile-Time Errors
+- Indicate that something's wrong with the syntax
+	- Tackle the first error first and one at a time
+	- This may solve later errors as well
+- Getting a weird compiler message
+	- Look for hidden information
+	- The message will tell you where the compiler was when it noticed the problem
+- Common Syntax Errors: 
+	1) Check that all parentheses and curly brackets are properly nested
+	2) Check Capitalization
+	3) Check for semicolons
+	4) Check for double quotation marks around Strings
+	5) Make sure all assignment statements are possible(the types match)
+	6) Make sure all arguments are in the right order and of the right type
+	7) Make sure the return type of each method matches what you are trying to do
+	8) Make sure you are invoking methods on objects of the right type
+	9) Inside and instance method, you can refer to the instance variables without specifying an object
+- I can't get my code to compile
+	0) Make a backup of the file you are working on
+	1) Delete half the code
+		1.0) Error remains: Delete another half of the code
+		1.1) Error is resolved: Bring back half of the code
+	2) Repeat
+	- This works in other languages too
+- I did what the compiler says but it doesn't work
+	- Remedies that the compiler suggest are unreliable
+
+Run-Time Errors
+- Hanging Code
+	- Code that is seemingly doing nothing
+	- Often caught in an infinite loop or an infinite recursion
+- Infinite Loop
+	- Add print statements before and after each loop to see where you are getting stuck
+	- Add print statements within the loop where you are getting stuck to see what you are getting stuck on
+		- Print each variable and the loop's condition
+- Infinite Recursion
+	- Will cause a StackOverflowError
+	- Make sure that there is a base case
+	- Print parameters at each call
+- Flow of Execution
+	- Add print statements to the beginning of each method
+	- Also print the arguments
+	- One of the most common errors is providing arguments in the wrong order
+- Exceptions:
+	- NullPointerException
+		- You tried to access an instance variable or invoke a method on an object that is currently null
+	- StackOverflowError
+		- Infinite recursion
+	- ArrayIndexOutOfBounds
+		- The index you are using to access an array is either negative or greater than array.length - 1
+	- FileNotFoundException
+		- Java didn't find the file
+		- Check the location of the file and make sure it is accessible
+	- ArithmeticException
+		- Something went wrong with arithmetic
+		- e.g. division by zero
+- Try not to overflow the terminal with prints
+	- Combine and comment out unnecessary ones
+
+Logic Errors
+- Program doesn't work
+	- The compiler and interpreter don't know what the code is supposed to do so you must catch these errors yourself
+	- Create a hypothesis about what the error is. To do so, ask yourself these questions:
+		- Is there something the program is supposed to do that is not happening? 
+		- Is something happening that shouldn't be? 
+		- Is a section of code producing an unexpected effect? 
+	- The problem might be more in your head that in the program
+- Common Logic Errors: 
+	1) Integer division round towards zero
+	2) Floating-point numbers are approximate
+	3) Make sure you are using "==" and the equals method in their appropriate contexts
+	4) Inheritance can lead to subtle errors
+- Expressions aren't returning what is expected
+	- Simplify the code
+		- This sometimes means lengthen
+	- Check for order of operations
+		- Use parentheses to force it
+	- Use temporary values
+- Print Statements
+	- Use println instead of print
+- You are really, really stuck
+	- Computers can cause: 
+		1) Frustration and rage
+		2) Superstitious beliefs ans magical thinking
+		3) Sour grapes
+- Use peer review
+	- Provide information on:
+		1) The kind of bug
+		2) The last thing you did before the bug
+		3) The error message
+		4) What you have tried and learned
+- Use Rubber Ducking
+	- Your ducky is your friend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

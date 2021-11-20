@@ -1,0 +1,23 @@
+First Compile Attempt: 
+YoRPG.java:30: error: cannot find symbol
+  private Protagonist pat;
+          ^
+  symbol:   class Protagonist
+  location: class YoRPG
+YoRPG.java:31: error: cannot find symbol
+  private Monster smaug;
+          ^
+  symbol:   class Monster
+  location: class YoRPG
+YoRPG.java:88: error: cannot find symbol
+    pat = new Protagonist( name );
+              ^
+  symbol:   class Protagonist
+  location: class YoRPG
+YoRPG.java:108: error: cannot find symbol
+	    smaug = new Monster();
+	                ^
+  symbol:   class Monster
+  location: class YoRPG
+4 errors
+

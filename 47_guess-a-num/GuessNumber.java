@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW47 -- ?
+// YAH :: Ameer Alnasser + TurtleBoi and HUUUUUGOOOO JENKINS + Boary
+// APCS pd06
+// HW47 -- Guess Again
 // 2021-12-15w
-// time spent: _ hrs
+// time spent: .75 hrs including class time
 
 /***
  * class GuessNumber -- fun fun fun!
@@ -20,8 +20,14 @@
  ***/
 
 /***
-    DISCO:
-    QCC:
+DISCO:
+0) SOPln does not end a method. Values can be modified after the fact
+1) Breaks are important while impleemnting an iterative loop
+
+QCC:
+0) Besides personal preference, how do you know whether recursion or iteration is better?
+1) Is this homework to demonstrate the efficiency of binary search to us?
+
  ***/
 import java.util.Scanner;
 
@@ -57,15 +63,22 @@ public class GuessNumber
     ==================================================*/
   public void playRec()
   {
-    System.out.print("Guess a num bt " + _lo + " & " + _hi + ": ");
+    //If _lo and _hi are the same, you lose
+    if (_lo == _hi) {
+      System.out.println("Unfortunate... The number was " + _target);
+      return;
+    }
+    System.out.print("Guess a # fr " + _lo + "-" + _hi + ": ");
     int guess = sc.nextInt();
     _guessCtr++;
     //3 cases: we either found it, too hi, too lo
 
     /* YOUR CODE HERE */
-    if (_lo == _hi) {
-      System.out.println("Unfortunate... The number was " + _target);
-    }else if (guess == _target) {
+    if((guess< _lo)||(guess>_hi)){ //Checks whether input is in range
+      System.out.println("Guess has been eliminated already, try guessing again");
+      playRec();
+    }
+   if (guess == _target) {
       System.out.println("Correct! It took " + _guessCtr + " guesses");
     } else if (guess < _target) {
       System.out.println("Too low");
@@ -77,8 +90,6 @@ public class GuessNumber
       playRec();
     }
   }
-
-
   /*==================================================
     void playIter() -- Prompts a user to guess until guess is correct.
     Uses iteration.
@@ -89,19 +100,23 @@ public class GuessNumber
     int guess;
 
     while( true ) {
-      System.out.print("Guess a num bt " + _lo + " & " + _hi + ": ");
+      //If _lo and _hi are the same, you lose
+      if (_lo == _hi) {
+        System.out.println("Unfortunate... The number was " + _target);
+        break;
+      }
+      System.out.print("Guess a # fr " + _lo + "-" + _hi + ": ");
       guess = sc.nextInt();
 
       //3 cases: we either found it, too hi, too lo
 
       /* YOUR CODE HERE */
       _guessCtr++;
-      if (_lo == _hi) {
-        System.out.println("Unfortunate... The number was " + _target);
-        return;
+      if((guess< _lo)||(guess>_hi)){ //Checks whether input is in range
+        System.out.println("Guess has been eliminated already, try guessing again");
       }else if (guess == _target) {
         System.out.println("Correct! It took " + _guessCtr + " guesses");
-        return;
+        break;
       } else if (guess < _target) {
         System.out.println("Too low");
         _lo = guess + 1;
@@ -109,25 +124,25 @@ public class GuessNumber
         System.out.println("Too high");
         _hi = guess - 1;
       }
-
-    }
-  }
-
+}
+}
 
   //wrapper for playRec/playIter to simplify calling
   public void play()
   {
     //use one or the other below:
-    //playRec();
-    playIter();
+  //playRec();
+  playIter();
   }
 
 
   //main method to run it all
   public static void main( String[] args )
   {
+
     //instantiate a new game
     GuessNumber g = new GuessNumber(1,100);
+    //System.out.println(g._target);
     //start the game
     g.play();
     /*-----------------------------

@@ -68,11 +68,14 @@ public class InsertionSort
       System.out.println( data );
 
       //traverse sorted region from right to left
-      for(int n = 0; n <= partition) {
+      for(int i = partition; i > 0; i--) {
 
         // "walk" the current item to where it belongs
         // by swapping adjacent items
-        if () {
+        if ((data.get(i).compareTo(data.get(i-1)))<0) {
+          Comparable x = data.get(i-1);
+          data.set(i-1, data.get(i));
+          data.set(i, x);
 
           System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
 
@@ -83,7 +86,6 @@ public class InsertionSort
     }
   }//end insertionSortV
 
-
   // ArrayList-returning insertionSort
   // postcondition: order of input ArrayList's elements unchanged
   //                Returns sorted copy of input ArrayList.
@@ -91,7 +93,7 @@ public class InsertionSort
     insertionSort( ArrayList<Comparable> input )
   {
     //declare and initialize empty ArrayList for copying
-    ArrayList<Comparable> data = new ArrayList<Comparable>();
+    ArrayList<Comparable> data = new ArrayList<Comparable>(input.size());
 
     //copy input ArrayList into working ArrayList
     for( Comparable o : input )
@@ -108,6 +110,7 @@ public class InsertionSort
   public static void main( String [] args )
   {
     /*===============for VOID methods=============
+
       System.out.println("\n*** Testing sort-in-place (void) version... *** ");
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -123,9 +126,9 @@ public class InsertionSort
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
       insertionSortV(coco);
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
+
       ============================================*/
 
-    /*==========for AL-returning methods==========
       System.out.println( "*** Testing non-void version... *** " );
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -146,6 +149,8 @@ public class InsertionSort
       + cocoSorted );
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
       System.out.println( coco );
+      /*==========for AL-returning methods==========
+      
       ============================================*/
 
   }//end main

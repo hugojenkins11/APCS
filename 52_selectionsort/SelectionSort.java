@@ -65,14 +65,15 @@ public class SelectionSort
     //note: this version places greatest value at "rightmost" end
 
     //maxPos will point to position of SELECTION (greatest value)
-    int maxPos = 0;
+    int maxPos;
 
     for(int pass = 1; pass < data.size(); pass++) {
       System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
+      maxPos = 0;
 
 
-      for(int i = 0; i < data.size()-pass; i++ ) {
-        if (data.get(i).compareTo(data.get(maxPos))<0) {
+      for(int i = 0; i < data.size()-pass+1; i++ ) {
+        if (data.get(i).compareTo(data.get(maxPos))>0) {
           maxPos = i;
         }
         System.out.println( "maxPos: " + maxPos );//diag
@@ -93,7 +94,7 @@ public class SelectionSort
   // ArrayList-returning selectionSort
   // postcondition: order of input ArrayList's elements unchanged
   //                Returns sorted copy of input ArrayList.
-  /*
+
   public static ArrayList<Comparable> selectionSort( ArrayList<Comparable> input )
   {
     //declare and initialize empty ArrayList for copying
@@ -109,7 +110,7 @@ public class SelectionSort
     return data;
   }//end selectionSort
 
-*/
+
   public static void main( String [] args )
   {
 

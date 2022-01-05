@@ -1,15 +1,18 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW52 -- implementing selection sort
-// 2022-01-05w
-// time spent:  hrs
+// Erica's Fans and Hugo: Kaitlin, Ariella, Hugo
+// APCS pd06
+// HW52 -- Selection, Natch
+// 2022-01-05
+// time spent: 2 hrs
 
 /******************************
  *   class SelectionSort -- implements SelectionSort algorithm
  *
  * ALGO:
+ * Find the minimum of the list and swap it with the first element.
+ * Repeat for all elements to the right of the minimum element.
  *
- * DISCO
+ * DISCO:
+ * The first parameter when declaring a new array list is the size
  *
  * QCC
  * q0: How many passes to sort n elements?
@@ -20,6 +23,7 @@
  * a2: if the last element is swapped with itself
  * q3: What does a pass boil down to?
  * a3: linear search and swap
+ * Pass = 0 gives an index out of bounds error while pass = 1 doesn't
  ******************************/
 
 
@@ -44,8 +48,7 @@ public class SelectionSort
   }
 
   //randomly rearrange elements of an ArrayList
-  public static void shuffle( ArrayList al )
-  {
+  public static void shuffle( ArrayList al ){
     int randomIndex;
     for( int i = al.size()-1; i > 0; i-- ) {
       //pick an index at random
@@ -65,12 +68,11 @@ public class SelectionSort
     //note: this version places greatest value at "rightmost" end
 
     //maxPos will point to position of SELECTION (greatest value)
-    int maxPos;
+    int maxPos = 0;
 
     for(int pass = 1; pass < data.size(); pass++) {
-      System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
-      maxPos = 0;
-
+        maxPos=0;
+	System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
 
       for(int i = 0; i < data.size()-pass+1; i++ ) {
         if (data.get(i).compareTo(data.get(maxPos))>0) {
@@ -90,7 +92,6 @@ public class SelectionSort
     }
   }//end selectionSort
 
-
   // ArrayList-returning selectionSort
   // postcondition: order of input ArrayList's elements unchanged
   //                Returns sorted copy of input ArrayList.
@@ -99,22 +100,18 @@ public class SelectionSort
   {
     //declare and initialize empty ArrayList for copying
     ArrayList<Comparable> data = new ArrayList<Comparable>();
-
     //copy input ArrayList into working ArrayList
     for( Comparable o : input )
       data.add( o );
-
     //sort working ArrayList
     selectionSortV( data );
-
     return data;
   }//end selectionSort
 
 
   public static void main( String [] args )
   {
-
-
+       /*===============for VOID methods=============
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
     glen.add(1);
@@ -129,10 +126,7 @@ public class SelectionSort
     System.out.println( "ArrayList coco before sorting:\n" + coco );
     selectionSortV(coco);
     System.out.println( "ArrayList coco after sorting:\n" + coco );
-        /*===============for VOID methods=============
-      ============================================*/
-
-    /*==========for AL-returning methods==========
+     ============================================*/
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
@@ -144,16 +138,12 @@ public class SelectionSort
       System.out.println( "sorted version of ArrayList glen:\n"
       + glenSorted );
       System.out.println( "ArrayList glen after sorting:\n" + glen );
-
       ArrayList coco = populate( 10, 1, 1000 );
       System.out.println( "ArrayList coco before sorting:\n" + coco );
       ArrayList cocoSorted = selectionSort( coco );
       System.out.println( "sorted version of ArrayList coco:\n"
       + cocoSorted );
       System.out.println( "ArrayList coco after sorting:\n" + coco );
-      System.out.println( coco );
-      ============================================*/
-
   }//end main
 
 }//end class SelectionSort

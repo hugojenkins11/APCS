@@ -1,27 +1,37 @@
-// Clyde "Thluffy" Sinclair
+// Erica's Fans and Hugo: Kaitlin Ho, Ariella Katz, Hugo Jenkins, Apple, Tom, Boary
 // APCS pd0
-// HW53 -- implementing insertion sort
-// 2022-01-06r
-// time spent:  hrs
+// HW53 -- Poker Face
+// 2022-01-05
+// time spent: 0.5 hrs
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
- * ALGO:
- *
+ * ALGO
+ * Establish a partition dividing sorted and unsorted sections.
+ *   The first partition should be between elements 0 and 1.
+ * Move the partition to the right to encompass one more
+ *  element.
+ * "Walk" the new element to its proper place in the sorted
+ *  region.
+ * Repeat the previous two steps until the partition is at the
+ *  end of the list.
  * DISCO
- *
+ * The else break; statement in insertionSortV is unnecessary,
+ *  but helps for clarity.
  * QCC
  * q0: How many passes to sort n elements?
  * a0: n-1
  * q1: What do you know after pass p?
- * a1:
+ * a1: The elements up to and including index p are sorted.
  * q2: How will you know when sorted?
- * a2:
+ * a2: when the partition is at the end of the list
  * q3: What constitues a pass?
- * a3:
+ * a3: The partition is moved to the right and the element
+ *     now directly to the left of the partition is walked
+ *     to its place
  * q4: What must you track?
- * a4:
+ * a4: The location of the partition
  ******************************/
 
 
@@ -110,7 +120,6 @@ public class InsertionSort
   public static void main( String [] args )
   {
     /*===============for VOID methods=============
-
       System.out.println("\n*** Testing sort-in-place (void) version... *** ");
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -121,12 +130,10 @@ public class InsertionSort
       System.out.println( "\nArrayList glen before sorting:\n" + glen );
       insertionSortV(glen);
       System.out.println( "\nArrayList glen after sorting:\n" + glen );
-
       ArrayList coco = populate( 10, 1, 1000 );
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
       insertionSortV(coco);
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
-
       ============================================*/
 
       System.out.println( "*** Testing non-void version... *** " );
@@ -148,7 +155,7 @@ public class InsertionSort
       System.out.println( "\nsorted version of ArrayList coco:\n"
       + cocoSorted );
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
-      System.out.println( coco );
+//      System.out.println( coco );
       /*==========for AL-returning methods==========
       
       ============================================*/

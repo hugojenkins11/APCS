@@ -1,5 +1,5 @@
 /*
-Ariella Katz, Tom
+Hugo Jenkins + Boary
 APCS
 HW54 -- One File to Bring Them All...
 2022-01-11

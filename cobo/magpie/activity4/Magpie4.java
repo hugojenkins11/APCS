@@ -1,3 +1,18 @@
+/*
+Erica's Fans and Hugo
+APCS
+HW56 - Turing Training Wheels
+2022-1-12
+time spent: 2
+
+QCC:
+- In activty4 there was an out of bounds issue with the I You statement and response. In line 67, removing the space from "I " (changed to "I") solved the out of bounds issue. Why is this? How could a single space cause this error.
+
+DISCO:
+- Learned how to open html files in java and in terminal
+- User input obtained from the scanner can easily be manipulated (i.e using methods like an overridden indexOf, transform methods using substring, etc)
+*/
+
 /**
  * A program to carry on conversations with a human user.
  * This version:
@@ -9,6 +24,13 @@
  * @author Laurie White
  * @version April 2012
  *
+ */
+
+ /*
+ * This structure does not work well when "I" and "you", for example,
+ * both appear in that order but are not part of the same clause. We
+ * could fix this by limiting the code to only do the I_You transformation
+ * if there is exactly one word between "I" and "you".
  */
 public class Magpie4
 {
@@ -53,6 +75,15 @@ public class Magpie4
 		{
 			response = transformIWantToStatement(statement);
 		}
+		else if (findKeyword(statement, "I want", 0) >= 0)
+		{
+			response = transformIWantStatement(statement);
+		}
+		else if (findKeyword(statement, "I", 0) >= 0
+			  && findKeyword(statement, "you", 0) >= 0)
+		{
+			response = transformIYouStatement(statement);
+		}
 
 		else
 		{
@@ -94,6 +125,40 @@ public class Magpie4
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "What would it mean to " + restOfStatement + "?";
 	}
+
+ 	private String transformIWantStatement(String statement)
+        {
+                //  Remove the final period, if there is one
+                statement = statement.trim();
+                String lastChar = statement.substring(statement
+                                .length() - 1);
+                if (lastChar.equals("."))
+                {
+                        statement = statement.substring(0, statement
+                                        .length() - 1);
+                }
+                int psn = findKeyword (statement, "I want ", 0);
+                String restOfStatement = statement.substring(psn + 7).trim();
+                return "Would you really be happy if you had " + restOfStatement + "?";
+        }
+
+	private String transformIYouStatement(String statement)
+        {
+                //  Remove the final period, if there is one
+                statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() -1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() -1);
+		}
+                int psn0 = findKeyword (statement, "I", 0);
+		int psn1 = findKeyword (statement, "you", psn0+1);
+		String middleStatement = statement.substring((psn0+2),(psn1)).trim();
+                return "Why do you " + middleStatement + " me?";
+        }
+
 
 	
 	

@@ -8,7 +8,6 @@ time spent: 0.75 hrs + class
 DISCO
 ------------------------------------------------
 * A local mode is when a value is greater than both the prior and the next values
-*
 ================================================
 
 

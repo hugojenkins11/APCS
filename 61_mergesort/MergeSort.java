@@ -1,3 +1,9 @@
+// Team Gnocchi -- Hugo Jenkins and Ryan Lau
+// APCS pd6
+// HW61 -- Instructions so Simple...
+// 2022-02-08t
+// time spent: .5hrs
+
 /***
   class MergeSort
   Implements mergesort on array of ints.
@@ -30,7 +36,7 @@ public class MergeSort
         apple++;
       }
     }
-    if (a.length == 0) {
+    if (a.length == apple) {
       while (b.length > banana) {
         out[apple + banana] = b[banana];
         banana++;
@@ -53,8 +59,22 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
-    int [] a = new int[3];
-    return a;
+    if (arr.length == 1) {
+      return arr;
+    }
+
+    int[] arr1 = new int[(arr.length + 1 )/ 2];
+    int[] arr2 = new int[arr.length / 2];
+
+    for (int i = 0; i < arr1.length; i++) {
+      arr1[i] = arr[i];
+    }
+
+    for (int i = arr1.length; i < arr.length; i++) {
+      arr2[i - arr1.length] = arr[i];
+    }
+
+    return merge(sort(arr1), sort(arr2));
   }//end sort()
 
 
@@ -80,7 +100,6 @@ public class MergeSort
   //main method for testing
   public static void main( String [] args )
   {
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
 
       int[] arr0 = {0};
       int[] arr1 = {1};
@@ -107,7 +126,7 @@ public class MergeSort
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
-
+      /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 

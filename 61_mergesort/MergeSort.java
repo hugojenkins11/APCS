@@ -38,7 +38,7 @@ public class MergeSort
     }
     else {
       while (a.length > apple) {
-        out[apple + banana] = a[apple]
+        out[apple + banana] = a[apple];
         apple++;
       }
     }
@@ -53,15 +53,8 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
-    int count = arr.length/2;
-    int[] arr2 = new int[count];
-    int[] arr3 = new int[arr.length - count];
-    for (int i = 0; i < count; i++) {
-      arr2[i] = arr[i];
-    }
-    for (int i = count; i < arr.length; i ++) {
-      arr3 = arr[i];
-    }
+    int [] a = new int[3];
+    return a;
   }//end sort()
 
 
@@ -88,6 +81,7 @@ public class MergeSort
   public static void main( String [] args )
   {
     /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
+
       int[] arr0 = {0};
       int[] arr1 = {1};
       int[] arr2 = {1,2};
@@ -113,6 +107,7 @@ public class MergeSort
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
+
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 

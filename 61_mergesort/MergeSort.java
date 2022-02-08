@@ -3,13 +3,22 @@
 // HW61 -- Instructions so Simple...
 // 2022-02-08t
 // time spent: .5hrs
-
+/*
+DISCO:
+* There are only two possible things that sort can do. return the array or call sort two more times.
+QCC:
+* How could you make sort iterative rather than recurisive?
+* How does mergesort compare to our other sort algorithms?
+*/
 /***
   class MergeSort
   Implements mergesort on array of ints.
 
   Summary of Algorithm:
-
+  0) Compare the first items of the two lists
+  1) Add the lower one to the new list and remove it from the list from which it was taken
+  2) If you run through every item in one of the lists, add the remaining items in the other list to the new list
+  3) Repeat until all of the items are in the new list
   ***/
 
 public class MergeSort

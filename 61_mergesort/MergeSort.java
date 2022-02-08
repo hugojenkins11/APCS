@@ -6,6 +6,8 @@
 /*
 DISCO:
 * There are only two possible things that sort can do. return the array or call sort two more times.
+* When we assign values to an array that is passed into a function which changes the values, the array will keep those values after the function has been run.
+  * Shows that arrays are pass-by-reference. 
 QCC:
 * How could you make sort iterative rather than recurisive?
 * How does mergesort compare to our other sort algorithms?

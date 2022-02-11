@@ -1,0 +1,30 @@
+Hugo Jenkins
+APCSpd6
+HW63: Read/Review/Expand
+2022-02-11r
+time spent:
+Activity 1
+-------------------------------------------
+1a) public static double sentimentVal( String )
+
+1b) Yes, it requires a String paramter. If you try to input a diffgerent type of paramter, it says that that type can not be converted to a String.
+
+1c) Yes, it returns a double.
+
+2)  Method Call     Return Value
+    apple           0.65
+    nice            2.09
+    quickly         -0.48
+    ryan            0.04
+
+3a) This would compile, as it uses the correct return type and parameter type.
+
+3b) This would not compile, as the return type of the method is a double and not a String.
+
+3c) This would not compile, as the method only takes one return type and not two.
+===========================================
+
+Activity 2
+-------------------------------------------
+
+===========================================

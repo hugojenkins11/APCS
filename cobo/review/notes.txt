@@ -50,3 +50,21 @@ ACTIVITY 3
 5. You do not need to create an instance of a Review class to be able to use the static methods within Review. Non-static methods must be called on an instance of the class.
 
 6. Instead of calling randomAdjective(), we can either call randomPositiveAdj() or randomNegativeAdj() within fakeReview.
+
+
+ACTIVITY 4
+
+1. You want to be able to communicate your negative feelings but you do not want to bother to write a review.
+
+2. You want to be able to communicate your positive feelings but you do not want to bother to write a review.
+
+3. In the file which contains the original review, instead of putting stars in front of the adjectives which you want to be replaced, put a plus (for a positive adjective) or a minus (for a negative adjective).
+
+5. It will remove the first letter of oneWord.
+
+6. It was necessary to do this because if you look up a word with the symbol in the hasMap, there won't be a value tied to the word since symbols are not included in it.
+
+7. After we take the random positive adjective, we would make sure that it had a sentiment value over 2.0.
+
+
+ACTIVITY 5

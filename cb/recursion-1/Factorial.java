@@ -6,4 +6,7 @@ public int factorial(int n) {
   }
   return n;
 }
+public static void main(String[] args) {
+  System.out.println(factorial(1) + ", " + 1 + ", " + factorial(2) + ", " + 2 + ", " + factorial(3) + ", " + 6);
+}
 }

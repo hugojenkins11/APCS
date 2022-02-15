@@ -5,5 +5,8 @@ public int sumDigits(int n) {
     return n;
   }
   return n%10 + sumDigits((n-n%10)/10);
-} 
+}
+public static void main(String[] args) {
+  System.out.println(sumDigits(126) + ", " + 9 + ", " + sumDigits(49) + ", " + 13 + ", " + sumDigits(12) + ", " + 3);
+}
 }

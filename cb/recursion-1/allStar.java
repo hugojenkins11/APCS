@@ -6,4 +6,7 @@ public String allStar(String str) {
   }
   return str.charAt(0)+"*"+allStar(str.substring(1));
 }
+public static void main(String[] args) {
+  System.out.println(allStar("hello") + ", " + "h*e*l*l*o");
+}
 }

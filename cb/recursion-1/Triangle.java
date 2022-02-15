@@ -9,4 +9,7 @@ public int bunnyEars2(int bunnies) {
   }
   return 2 + bunnyEars2(bunnies - 1);
 }
+public static void main(String[] args) {
+  System.out.println(triangle(0) + ", " + 0 + ", " + triangle(1) + ", " + 1 + ", " + triangle(2), 3);
+}
 }

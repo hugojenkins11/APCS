@@ -9,4 +9,7 @@ public String changeXY(String str) {
   }
   return str.charAt(0)+changeXY(str.substring(1));
 }
+public static void main(String[] args) {
+  System.out.println(changeXY("codex") + ", " + "codey" + ", " + changeXY("xxhixx") + ", " + "yyhiyy" + ", " + changeXY("xhixhix") + ", " + "yhiyhiy");
+}
 }

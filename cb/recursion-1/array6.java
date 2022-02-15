@@ -9,5 +9,7 @@ public boolean array6(int[] nums, int index) {
   }
   return array6(nums,index+1);
 }
-
+public static void main(String[] args) {
+  System.out.println(array6([1, 6, 4], 0) + ", " + true);
+}
 }

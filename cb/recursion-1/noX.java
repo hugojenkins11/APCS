@@ -9,4 +9,7 @@ public String noX(String str) {
   }
   return str.charAt(0)+noX(str.substring(1));
 }
+public static void main(String[] args) {
+  System.out.println(noX("xaxb") + ", " + "ab" + ", " +noX("abc") + ", " + "abc" + ", " + noX("xx"), "");
+}
 }

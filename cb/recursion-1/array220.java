@@ -10,5 +10,7 @@ public boolean array220(int[] nums, int index) {
   }
   return array220(nums,index+1);
 }
-
+public static void main(String[] args) {
+  System.out.println(array220([1, 2, 20], 0) + ", " + true);
+}
 }

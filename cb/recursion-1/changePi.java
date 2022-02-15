@@ -9,4 +9,7 @@ public String changePi(String str) {
 }
  return str.substring(0,1) + changePi(str.substring(1));
 }
+public static void main(String[] args) {
+  System.out.println(changePi("xpix") + ", " +"x3.14x" + ", " + changePi("pipi") + ", " + "3.143.14" + ", " + changePi("pip") + ", " + "3.14p");
+}
 }

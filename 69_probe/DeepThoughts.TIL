@@ -1,3 +1,9 @@
+Underwater Communication Cables - Hugo Jenkins + Boary, Kaitlin Ho + Apple, Sophie Eiden + Rabby
+APCS pd 6
+HW69 -- Making Sense
+2022-03-02
+time spent: 1hr
+
 q0: From any starting position, can an open tour always be found? Explain.
 -From any starting position an open tour cannot always be found. We tested it on a 5x5 board from row 1, column 2.
 q1: Same, but for closed tour.

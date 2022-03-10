@@ -1,8 +1,45 @@
-// Gnocchi: Hugo + Boary, Ryan + Jon, Brian + Vivian
-// APCS pd6
-// HW71: Whut Dis.
-// 2022-03-08
-// time spent: 1.0 hrs
+// Clyde Sinclair
+// APCS pd0
+// HW71 -- Reading for intent, tracing for VICTORY
+// 2022-03-07m
+// time spent:  hrs
+
+/***
+ * SKEELTON for
+ * class partition
+ * tests preliminary hypotheses re: utility of mystery algo
+ *
+ * <h1>It's a Bird, It's a Plane! It's.... partition</h1>
+ * The partition method ... <YOUR TRIO'S DESCRIPTION HERE>
+ * <p>
+ * <b>Note:</b> BLAH blah blah, yakkety schmakketty...
+ * @author  Trey Parker, Matt Stone
+ * @version 3.1415926535897932384626433
+ * @since   2022-03-07m
+ *
+ * algo as pseudocode:
+ * ------------------------------
+ *     v = arr[c]
+ *     swap arr[c], arr[b]
+ *     s = a
+ *     for i in [a..b-1]
+ *         if arr[i] < v
+ *             swap arr[s], arr[i]
+ *             s+=1
+ *     swap arr[b], arr[s]
+ *
+ * DISCO
+ *
+ * QCC
+ *
+ * q0: What does it do?
+ * a0:
+ *
+ * q1: O(?)
+ * a1:
+ *
+ ***/
+
 
 public class Mysterion
 {
@@ -48,28 +85,30 @@ public class Mysterion
 
   /**
    * int partition(int[],int,int,int)
-   * moves everything less than value at partitionIdx in the range [start, end]
-   * to the left of the value and everything greater to thte right
+   * DESCRIP
    *
    * @param arr
-   * @param start: has to be < arr.length
-   * @param end: has to be > start and < arr.length
-   * @param partitionIdx: has to be < arr.length
-   * @return int: value at partitionIdx
+   * @param a
+   * @param b
+   * @param c
+   * @return int
    *
    */
-  public static int partition( int[] arr, int start, int end, int partitionIdx)
+  public static int partition( int arr[], int a, int b, int c)
   {
-      int partitionValue = arr[partitionIdx];
-      swap(partitionIdx, end, arr);
-      int swaps = start;
-      for (int i = start; i <= end - 1; i++ ) {
-        if (arr[i] < partitionValue) {
-          swap(swaps, i, arr);
-          swaps++;
-        }
-      }
-      swap(end, swaps, arr);
-      return partitionValue;
+    int v = arr[c];
+
+    swap( c, b, arr);
+    int s = a;
+
+    for( int i = a; i < b; i++ ) {
+      if ( arr[i] <= v) {
+        swap( i, s, arr );
+        s++;}
+    }
+    swap(s,b,arr);
+
+    return s;
   }//end partition
+
 }//end class partition

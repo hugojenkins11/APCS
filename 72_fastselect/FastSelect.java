@@ -12,7 +12,7 @@ On @589 on Piazza, you confirmed that you did say logn, and it's up to us to fin
 On one hand, it could be, since using partition would mean that the algorithm would have at least an O(n) classification,
 but on the other hand, it is called fastSelect, and there may be a better way to do this.
 
-In the end, we couldn't figure out a way to make this go any faster, so we ended up with an O(n) classification. 
+In the end, we couldn't figure out a way to make this go any faster, so we ended up with an O(n) classification.
 This is because partition is a O(n) operation, and the extra for loop in fast select performs only constant time operations n times, another O(n) operation.
 In total, we end up with a O(n) operation.
 

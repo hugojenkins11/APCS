@@ -1,3 +1,15 @@
+//Blonde Himbos: Hugo Jenkins + Boary, Micheal Kamela, Jun Hong Wang
+//APCS pd6
+//HW75 -- Nodal Recall
+//2022-03-13m
+//time spent: 0.75h
+/*
+QCC:
+* Using this, could we refactor LLNode to make it possible to have a linked list of multiple data types. Maybe by making subclasses of LLNode?
+DISCO:
+* LLNode is a list but does not implement the List interface
+*/
+
 /***
  * class LLNode
  * Implements a node, for use in lists and other container classes.

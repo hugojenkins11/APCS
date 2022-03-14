@@ -61,7 +61,9 @@ public class LLNode
   public String toString()
   {
     String s = "";
-    s += "["+value+", "+next.toString()+"]";
+    s += "["+value+", ";
+    if (next != null) s += next.toString();
+    s += "]";
     return s;
   }
 
@@ -80,15 +82,20 @@ public class LLNode
 
     //Create a third node after the second
     first.getNext().setNext( new LLNode( "cow", null ) );
-
+    System.out.println(first.toString());
     /* A naive list traversal, has side effects.... ??
-       while( first != null ) {
-       System.out.println( first );
-       first = first.getNext();
-       }
     */
+       LLNode temp = first;
+       while( temp != null ) {
+       System.out.println( temp );
+       temp = temp.getNext();
+       }
+
+    //System.out.println(first.toString());
+
 
     //Q: when head ptr moves to next node in list, what happens to the node it just left?
+    //A:
 
     //...so better: ?
     //

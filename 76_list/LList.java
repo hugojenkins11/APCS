@@ -30,6 +30,10 @@ public class LList implements List //interface def must be in this dir
   {
     //_head.setNext(new LLNode(newVal, null));
     LLNode temp = _head;
+    _head = new LLNode(newVal,temp);
+    _size++;
+    return true;
+    /*
     if (_head.getCargo() == null) {
       temp.setCargo(newVal);
       _size += 1;
@@ -42,6 +46,8 @@ public class LList implements List //interface def must be in this dir
       _size += 1;
       return true;
     }
+    */
+
     // YOUR CODE HERE
   }
 

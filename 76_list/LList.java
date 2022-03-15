@@ -1,3 +1,8 @@
+//Blonde Himbos: Hugo Jenkins + Boary, Micheal Kamela, Jun Hong Wang
+//APCS pd6
+//HW76 - We Got a Little Ol' Convoy
+//2022-03-14m
+//time spent: 1.5h
 /***
  * class LList
  * Implements a linked list of LLNodes, each containing String data

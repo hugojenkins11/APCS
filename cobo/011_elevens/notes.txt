@@ -1,0 +1,27 @@
+Activity 2
+1)  A deck owns the cards made by the constructor.
+2)  6
+3)  String ranks[] = {two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace}
+    String suits[] = {spades, hearts, diamonds, clubs}
+    int pointValues[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11}
+4)  The order of elements in ranks and pointValues matter bu the order of elements in suits does not.
+
+Activity 3
+1)  public static String flip() {
+      int k = (int)(Math.random() * 3);
+      if (k == 2) {return "tails";}
+      else {return "heads";}
+    }
+2)  public static boolean arePermutations(int[] first, int[] second) {
+      boolean ret = false;
+      for (int i = 0; i < first.length; i++) {
+        int check = first[i];
+        ret = false;
+      for (int k = 0; k < second.length; k++) {
+        if (second[k] == check) ret = true;
+      }
+      if (ret == false) return ret;
+      }
+      return ret;
+    }
+3)  0, 0, 0, 0

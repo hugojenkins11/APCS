@@ -105,10 +105,16 @@ public class ItrWork
     // TASK: write code to print the contents of L...
 
     // a) using a FOREACH loop
-
+    for (Integer i : L) {
+      System.out.println(i);
+    }
 
     // b) explicitly using an iterator
-
+    System.out.println("");
+    Iterator<Integer> it = L.iterator();
+    while(it.hasNext()) {
+      System.out.println(it.next());
+    }
 
     System.out.println("\nTesting foundA...");
     System.out.println("9 in L? -> " + foundA(9,L) );

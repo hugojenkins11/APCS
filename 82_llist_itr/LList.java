@@ -256,7 +256,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //constructor
     public MyIterator()
     {
-      dummy = _head;
+      _dummy = _head;
       _okToRemove = false;
       /* YOUR CODE HERE */
     }
@@ -290,10 +290,14 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     public void remove()
     {
       /* YOUR CODE HERE */
+      if (_okToRemove) {
+        DLLNode tempNext = _dummy.getNext();
+        DLLNode tempPrev = _dummy.getPrev();
+        tempNext.setNext(tempPrev);
+        tempPrev.setPrev(tempNext);
+        _okToRemove = false;
+      }
 
-
-
-      _okToRemove = false;
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------

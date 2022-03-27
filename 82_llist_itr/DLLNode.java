@@ -1,112 +1,78 @@
-//Blonde Himbos: Hugo Jenkins + Boary, Micheal Kamela, Jun Hong Wang
-//APCS pd6
-//HW76 - We Got a Little Ol' Convoy
-//2022-03-14m
-//time spent: 1.5h
-
-/***
+/*****************************************************
  * class DLLNode
  * Implements a node, for use in lists and other container classes.
- * Stores its data as a Object
+ *****************************************************/
 
-  extra:
-  previous node dllnode
- **/
+public class DLLNode<T> {
 
-public class DLLNode
+    private T _cargo;    //cargo may only be of type T
+    private DLLNode<T> _nextNode, _prevNode; //pointers to next, prev DLLNodes
+
+
+    // constructor -- initializes instance vars
+    public DLLNode( T value, DLLNode<T> prev, DLLNode<T> next )
 {
-  //instance vars
-  private Object _cargo;
-  private DLLNode _nextNode;
-  private DLLNode _prevNode;
-
-  // constructor
-  public DLLNode( Object value, DLLNode prev , DLLNode next)
-  {
-    _cargo = value;
-    _nextNode = next;
-    _prevNode = prev;
-  }
+	_cargo = value;
+	_nextNode = next;
+	_prevNode = prev;
+    }
 
 
-  //--------------v  ACCESSORS  v--------------
-  public Object getCargo()
-  {
-    return _cargo;
-  }
+    //--------------v  ACCESSORS  v--------------
+    public T getCargo() { return _cargo; }
 
-  public DLLNode getNext()
-  {
-    return _nextNode;
-  }
+    public DLLNode<T> getNext() { return _nextNode; }
 
-  public DLLNode getPrev() {
-    return _prevNode;
-  }
-  //--------------^  ACCESSORS  ^--------------
+    public DLLNode<T> getPrev() { return _prevNode; }
+    //--------------^  ACCESSORS  ^--------------
 
 
-  //--------------v  MUTATORS  v--------------
-  public Object setCargo( Object newCargo )
-  {
-    Object foo = getCargo();
-    _cargo = newCargo;
-    return foo;
-  }
+    //--------------v  MUTATORS  v--------------
+    public T setCargo( T newCargo ) {
+	T foo = getCargo();
+	_cargo = newCargo;
+	return foo;
+    }
 
-  public DLLNode setNext( DLLNode newNext )
-  {
-    DLLNode foo = getNext();
-    _nextNode = newNext;
-    return foo;
-  }
+    public DLLNode<T> setNext( DLLNode<T> newNext ) {
+	DLLNode<T> foo = getNext();
+	_nextNode = newNext;
+	return foo;
+    }
 
-  public DLLNode setPrev(DLLNode newPrev) {
-    DLLNode foo = getPrev();
-    _prevNode = newPrev;
-    return foo;
-  }
-  //--------------^  MUTATORS  ^--------------
+    public DLLNode<T> setPrev( DLLNode<T> newPrev ) {
+	DLLNode<T> foo = getPrev();
+	_prevNode = newPrev;
+	return foo;
+    }
+    //--------------^  MUTATORS  ^--------------
 
 
-  // override inherited toObject
-  public String toString() { return _cargo.toString(); }
+    // override inherited toString
+    public String toString() { return _cargo.toString(); }
 
 
-  //main method for testing
-  public static void main( String[] args )
-  {
+    //main method for testing
+    public static void main( String[] args )
+{
+	//Below is an exercise in creating a linked list...
 
-    //Below is an exercise in creating a linked list...
+	/*********************
+	//Create a node
+	DLLNode<String> first = new DLLNode<String>( "cat", null );
 
-    //Create a node
-    DLLNode first = new DLLNode( "cat", null , null);
+	//Create a new node after the first
+	first.setNext( new DLLNode<String>( "dog", null ) );
 
-    //Create a new node after the first
-    first.setNext( new DLLNode( "dog", null , null) );
+	//Create a third node after the second
+	first.getNext().setNext( new DLLNode<String>( "cow", null ) );
 
-    //Create a third node after the second
-    first.getNext().setNext( new DLLNode( "cow", null , null) );
-
-    /* A naive list traversal, has side effects.... ??
-       while( first != null ) {
-         System.out.println( first );
-         first = first.getNext();
-       }
-    */
-
-    //Q: when head ptr moves to next node in list, what happens to the node it just left?
-    //A: garbage collector reclaims that memory
-
-    //  so, better: (w/o moving first)
-    /*
-      DLLNode temp = first;
-      while( temp != null ) {
-        System.out.println( temp );
-        temp = temp.getNext();
-      }
-    */
-
-  }//end main
+	DLLNode temp = first;
+	while( temp != null ) {
+	    System.out.println( temp );
+	    temp = temp.getNext();
+	}
+	***********************/
+    }//end main
 
 }//end class DLLNode

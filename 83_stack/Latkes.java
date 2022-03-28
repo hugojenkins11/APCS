@@ -39,7 +39,9 @@ public class Latkes
     if (!isFull()) {
     _stack[_stackSize] = s;
     _stackSize++;
+    return;
     }
+    return;
     /* your
        SIMPLE
        SMART
@@ -57,12 +59,16 @@ public class Latkes
     String[] temp = new String[_stack.length];
     for (int i = 1; i < _stack.length; i++) {
       temp[i] = _stack[i];
+      _stack[i] = null;
+    }
+    for (int i = 0; i < temp.length; i++) {
+      _stack[i] = temp[i];
     }
     _stack = temp;
     _stackSize--;
     return ret;
     }
-  return "empty";
+  return null;
   /* your
      SIMPLE
      SMART
@@ -102,7 +108,7 @@ public class Latkes
   public static void main( String[] args )
   {
 
-    Latkes tastyStack = new Latkes(10);
+    Latkes tastyStack = new Latkes(12);
 
     tastyStack.push("aoo");
     tastyStack.push("boo");
@@ -116,6 +122,10 @@ public class Latkes
     tastyStack.push("joo");
     tastyStack.push("coocoo");
     tastyStack.push("cachoo");
+    for (int i = 0; i < tastyStack._stackSize; i++) {
+      System.out.println(tastyStack._stack[i]);
+    }
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
     //cachoo
     System.out.println( tastyStack.pop() );
@@ -144,7 +154,6 @@ public class Latkes
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 

@@ -152,10 +152,10 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
 
 
   //return an Iterator over this list
-  public Iterator<T> iterator()
+  public MyIterator iterator()
   {
     /* YOUR CODE HERE */
-    Iterator<T> it = MyIterator();
+    MyIterator it = new MyIterator();
     return it;
   }
 
@@ -267,10 +267,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     public boolean hasNext()
     {
       /* YOUR CODE HERE */
-      if (_dummy.getNext() != null) {
-        return true;
-      }
-      return false;
+      return _dummy != null;
     }
 
 
@@ -278,9 +275,10 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     public T next()
     {
       /* YOUR CODE HERE */
-      _okToRemove = true;
-      _dummy = _dummy.getNext();
-      return _dummy;
+        T returned = _dummy.getCargo();
+        _dummy = _dummy.getNext();
+        _okToRemove = true;
+        return returned;
     }
 
 
@@ -291,13 +289,12 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     {
       /* YOUR CODE HERE */
       if (_okToRemove) {
-        DLLNode tempNext = _dummy.getNext();
-        DLLNode tempPrev = _dummy.getPrev();
-        tempNext.setNext(tempPrev);
-        tempPrev.setPrev(tempNext);
+        _dummy.getNext().setPrev(null);
+        _dummy = _dummy.getNext();
         _okToRemove = false;
+      } else {
+        throw new IllegalStateException();
       }
-
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
@@ -352,6 +349,19 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     System.out.println( "...after remove(0): " + james.remove(0) );
     System.out.println( james + "\tsize: " + james.size() );
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    List L = new LList<String>();
+    L.add("testing");
+    L.add("MyIterator");
+    L.add("constructor");
+    L.add("and");
+    L.add("method");
+
+    Iterator it = L.iterator();
+
+    while (it.hasNext()) {
+      System.out.println(it.next());
+    }
   }//end main()
 
 }//end class LList

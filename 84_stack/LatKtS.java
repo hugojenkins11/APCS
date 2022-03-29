@@ -35,7 +35,26 @@ public class LatKtS
    **/
   public static boolean allMatched( String s )
   {
-    return true;
+    Latkes himbo = new Latkes(s.length());
+    for (int i = 0; i < s.length(); i++) {
+      String q = s.substring(i, i+1);
+      if (q.equals("(") || q.equals("[") || q.equals("{")) himbo.push(q);
+      else {
+        if (himbo.isEmpty()) return false;
+        String r = himbo.pop();
+        if (q.equals(")")) {
+          if (!(r.equals("("))) return false;
+        }
+        if (q.equals("}")) {
+          if (!(r.equals("{"))) return false;
+        }
+        if (q.equals("]")) {
+          if (!(r.equals("["))) return false;
+        }
+      }
+    }
+    if (himbo.isEmpty()) return true;
+    return false;
   }
 
 
@@ -43,13 +62,14 @@ public class LatKtS
   public static void main( String[] args )
   {
     System.out.println(flip("stressed"));
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
     System.out.println(allMatched( "({}[()])" )); //true
     System.out.println(allMatched( "([)]" ) ); //false
     System.out.println(allMatched( "(){([])}" ) ); //true
     System.out.println(allMatched( "](){([])}" ) ); //false
     System.out.println(allMatched( "(){([])}(" ) ); //false
     System.out.println(allMatched( "()[[]]{{{{((([])))}}}}" ) ); //true
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }
 

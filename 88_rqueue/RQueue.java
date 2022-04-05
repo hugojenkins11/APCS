@@ -83,7 +83,8 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   /***
    * void sample() -- a means of "shuffling" the queue
    * Algo:
-   *   < YOUR SUCCINCT SUMMARY HERE >
+   *   1) Choose random LLNode in the queue
+   *   2) Swap its cargo with that of the front LLNode
    **/
   public void sample ()
   {

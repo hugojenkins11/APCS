@@ -1,3 +1,8 @@
+//Blonde Himbos: Hugo Jenkins + Boary, Micheal Kamela, Jun Hong Wang
+//APCS pd6
+//HW88 - BPC Kiddies Do Not Wait in Line Either
+//2022-04-03m
+//time spent: 0.75 hr
 /***
  * interface Queue
  * Includes only methods listed in AP subset of Java

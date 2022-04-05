@@ -1,8 +1,8 @@
 public class LLNode<SWASHBUCKLE>
 {
   //instance vars
-  private SWASHBUCKLE _cargo;    //cargo may only be of type SWASHBUCKLE
-  private LLNode<SWASHBUCKLE> _nextNode; //pointer to next LLNode<SWASHBUCKLE>
+  private SWASHBUCKLE _cargo;    //cargo may only be of type T
+  private LLNode<SWASHBUCKLE> _nextNode; //pointer to next LLNode<T>
 
   // constructor -- initializes instance vars
   public LLNode( SWASHBUCKLE value, LLNode<SWASHBUCKLE> next ) {
@@ -18,7 +18,7 @@ public class LLNode<SWASHBUCKLE>
   //--------------^  ACCESSORS  ^--------------
 
 
-  //--------------v  MUS-WASHBUCKLE-AS-WASHBUCKLE-ORS  v--------------
+  //--------------v  MUTATORS  v--------------
   public SWASHBUCKLE setCargo( SWASHBUCKLE newCargo ) {
     SWASHBUCKLE foo = getCargo();
     _cargo = newCargo;
@@ -30,7 +30,7 @@ public class LLNode<SWASHBUCKLE>
     _nextNode = newNext;
     return foo;
   }
-  //--------------^  MUS-WASHBUCKLE-AS-WASHBUCKLE-ORS  ^--------------
+  //--------------^  MUTATORS  ^--------------
 
 
   // override inherited toString

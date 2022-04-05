@@ -1,3 +1,15 @@
+//Blonde Himbos: Hugo Jenkins + Boary, Micheal Kamela, Jun Hong Wang
+//APCS pd6
+//HW88 - BPC Kiddies Do Not Wait in Line Either
+//2022-04-03m
+//time spent: 0.75 hr
+/*
+DISCO:
+Sample only needs to randomize the fornt as that is the only thing ever being removed form the Queue
+QCC:
+What are the practical uses for an RQueue?
+*/
+
 /***
  * class RQueue
  * SKELETON
@@ -25,28 +37,47 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   // default constructor creates an empty queue
   public RQueue()
   {
-
+    _front = _end = null;
+    _size = 0;
   }
 
 
-  public void enqueue( T enQVal )
+  public void enqueue( SWASHBUCKLE enQVal )
   {
-
-  }//O(?)
+    if ( isEmpty() ) {
+      _front = _end = new LLNode<SWASHBUCKLE>( enQVal, null );
+    }
+    else {
+      _end.setNext( new LLNode<SWASHBUCKLE>( enQVal, null ) );
+      _end = _end.getNext();
+    }
+    _size++;
+    System.out.println("enqueued " + enQVal);
+  }//O(1)
 
 
   // remove and return thing at front of queue
   // assume _queue ! empty
-  public T dequeue()
+  public SWASHBUCKLE dequeue()
   {
+    sample();
+    SWASHBUCKLE retVal = _front.getCargo();
+    _front = _front.getNext();
 
-  }//O(?)
+    if ( _front == null ) //just moved past last node
+      _end = null;      //update _end to reflect emptiness
+
+    _size--;
+
+    return retVal;
+  }//O(1)
 
 
-  public T peekFront()
+  public SWASHBUCKLE peekFront()
   {
-    return _front.getValue();
-  }//O(?)
+    sample();
+    return _front.getCargo();
+  }//O(1)
 
 
   /***
@@ -56,14 +87,25 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
    **/
   public void sample ()
   {
-    
-  }//O(?)
+    LLNode<SWASHBUCKLE> temp = _front;
+    //for (int i = 0; i < _size; i++) {
+    temp = _front;
+    int rand = (int)(Math.random() * _size);
+    for (int p = 0; p < rand; p++) {
+      temp = temp.getNext();
+    }
+    SWASHBUCKLE movingVal = temp.getCargo();
+    SWASHBUCKLE frontVal = _front.getCargo();
+    temp.setCargo(frontVal);
+    _front.setCargo(movingVal);
+    //}
+  }//O(n)
 
 
   public boolean isEmpty()
   {
     return _front == null;
-  } //O(?)
+  } //O(1)
 
 
   // print each node, separated by spaces
@@ -72,7 +114,7 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     String foo = "";
     LLNode<SWASHBUCKLE> tmp = _front;
     while ( tmp != null ) {
-      foo += tmp.getValue() + " ";
+      foo += tmp.getCargo() + " ";
       tmp = tmp.getNext();
     }
     return foo;
@@ -84,7 +126,6 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   public static void main( String[] args )
   {
 
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
     Queue<String> PirateQueue = new RQueue<String>();
 
@@ -110,6 +151,7 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     System.out.println("\nnow dequeuing fr empty queue...\n" +
                        "(expect NPE)\n");
     System.out.println( PirateQueue.dequeue() );
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 

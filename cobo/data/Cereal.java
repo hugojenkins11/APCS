@@ -1,5 +1,5 @@
 /*
-Erica's Fans and Hugo :: Kaitlin Ho, Hugo Jenkins, Ariella Katz, Apple, Boary, Tom
+The Greyducks :: Kaitlin Ho, Hugo Jenkins, Ariella Katz, Apple, Boary, Tom
 APCS
 LAB08 -- America's Next Top Data Scientist
 2022-04-05

@@ -1,4 +1,4 @@
-# Greyducks (Hugo Jenkins, Kaitlin Ho, Ariella Katz)
+# Erica's Fans and Hugo (Hugo Jenkins, Kaitlin Ho, Ariella Katz)
 * APCS pd6
 * L08: America's Next Top Data Scientist
 * 2022-04-05

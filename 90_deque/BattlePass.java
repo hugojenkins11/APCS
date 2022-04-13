@@ -1,9 +1,9 @@
 import java.util.LinkedList;
 
-public class YourImplementationOfDeque<FORTNITE> implements Deque<FORTNITE> {
+public class BattlePass<FORTNITE> implements Deque<FORTNITE> {
   private LinkedList<FORTNITE> _fort;
 
-  public YourImplementationOfDeque() {
+  public BattlePass() {
     _fort = new LinkedList();
   }
 
@@ -50,7 +50,7 @@ public class YourImplementationOfDeque<FORTNITE> implements Deque<FORTNITE> {
   }
 
   public static void main(String[] args) {
-    YourImplementationOfDeque<String> nite = new YourImplementationOfDeque();
+    BattlePass<String> nite = new BattlePass();
 
     nite.addFirst("a");
     System.out.println(nite.peekFirst());

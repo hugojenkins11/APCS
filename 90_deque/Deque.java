@@ -26,7 +26,7 @@ public interface Deque<FORTNITE> {
 
   public FORTNITE getLast();
 
-  public Iterator<FORTNITE> iterator();
+  // public Iterator<FORTNITE> iterator();
 
-  public Iterator<FORTNITE> descendingIterator();
+  // public Iterator<FORTNITE> descendingIterator();
 }

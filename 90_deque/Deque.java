@@ -3,6 +3,8 @@
 // HW90 - Deque
 // 2022-04-11m
 // time spent:  hr
+
+import java.util.Iterator;
 public interface Deque<FORTNITE> {
   public void addFirst(FORTNITE x);
 
@@ -19,4 +21,12 @@ public interface Deque<FORTNITE> {
   public FORTNITE pollFirst();
 
   public FORTNITE pollLast();
+
+  public FORTNITE getFirst();
+
+  public FORTNITE getLast();
+
+  public Iterator<FORTNITE> iterator();
+
+  public Iterator<FORTNITE> descendingIterator();
 }

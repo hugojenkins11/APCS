@@ -1,4 +1,6 @@
 import java.util.LinkedList;
+import java.util.Iterator;
+
 
 public class BattlePass<FORTNITE> implements Deque<FORTNITE> {
   private LinkedList<FORTNITE> _fort;
@@ -49,6 +51,23 @@ public class BattlePass<FORTNITE> implements Deque<FORTNITE> {
     }
   }
 
+  public FORTNITE getFirst() {
+    return _fort.getFirst();
+  }
+
+  public FORTNITE getLast() {
+    return _fort.getLast();
+  }
+
+  public Iterator<FORTNITE> iterator() {
+    return _fort.iterator();
+  }
+
+  public Iterator<FORTNITE> descendingIterator() {
+    return _fort.descendingIterator();
+  }
+
+
   public static void main(String[] args) {
     BattlePass<String> nite = new BattlePass();
 
@@ -86,5 +105,18 @@ public class BattlePass<FORTNITE> implements Deque<FORTNITE> {
 
     System.out.println(nite.pollFirst());
     System.out.println(nite.pollLast());
+    System.out.println("");
+
+    Iterator<String> iter = nite.iterator();
+    while (iter.hasNext()) {
+      System.out.println(iter.next());
+    }
+
+    Iterator<String> desIter = nite.descendingIterator();
+    while (iter.hasNext()) {
+      System.out.println(desIter.next());
+    }
+
+
   }
 }

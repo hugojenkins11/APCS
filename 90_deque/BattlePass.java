@@ -1,3 +1,9 @@
+// Blonde Himbos: Hugo Jenkins + Boary, Micheal Kamela, Jun Hong Wang
+// APCS pd6
+// HW90 - Deque
+// 2022-04-11m
+// time spent:  hr
+
 import java.util.LinkedList;
 import java.util.Iterator;
 

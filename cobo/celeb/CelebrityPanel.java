@@ -200,7 +200,7 @@ public class CelebrityPanel extends JPanel
                                     {
       public void actionPerformed(ActionEvent mouseClick)
       {
-        controller.play();
+        controller.prepareGame();
       }
     });
 

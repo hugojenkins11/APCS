@@ -3,7 +3,7 @@
 * APCS pd6
 * L09: Some Folks Call It A Charades
 * 2022-04-26
-* time spent: HORIZONTAL_SCROLLBAR_NEVER
+* time spent: 5 hrs
 
 ## To-Do List  
 1. ~~Compare QCC with teammates~~  

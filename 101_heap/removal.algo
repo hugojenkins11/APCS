@@ -1,3 +1,10 @@
+AKH+D :: Ariella Katz, Kaitlin Ho, Hugo Jenkins
+APCS pd6
+HW101: Heap o'Trouble
+2022-05-16
+time spent:  hrs
+
+
 1) If the node you want to remove is the root, remove it
 2) If the node you want to remove is the left child of the root, remove it
   a) If the node you want to remove is less than the left child of the root, repeat these steps on the right child of the root

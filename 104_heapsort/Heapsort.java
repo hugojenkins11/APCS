@@ -1,7 +1,7 @@
 /*
 AKH+D :: Ariella Katz, Kaitlin Ho, Hugo Jenkins
 APCS pd6
-HW 104 -
+HW 104 - Heaping Piles of Sordidness
 2022-05-19
 time spent: 1.0 hrs
 */
